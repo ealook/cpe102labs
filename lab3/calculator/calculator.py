@@ -1,7 +1,7 @@
 from __future__ import print_function
 
 import operations
-import parser
+import calc_parser
 import scanner
 import sys
 
@@ -31,7 +31,7 @@ class Calculator(object):
             op = self.parser.parse()
             if op:
                print('{0} => {1}'.format(op, op.evaluate(self.bindings)))
-         except parser.InvalidOperationException as exp:
+         except calc_parser.InvalidOperationException as exp:
             print(exp)
          except operations.UnboundIdentifierException as exp:
             print(exp)
@@ -43,5 +43,5 @@ if __name__ == '__main__':
    Calculator('Welcome to the simple calculator.\n'
       'To exit, hit <ctrl-d> in Unix or <ctrl-z> in Windows.',
       '-> ',
-      parser.Parser(scanner.Scanner(sys.stdin))
+      calc_parser.Parser(scanner.Scanner(sys.stdin))
    ).calculate()
