@@ -1,6 +1,19 @@
 class Expression(object):
    pass
 
+class BinaryExpression(Expression):
+   def __init__(self, lft, rht, operator):
+      self.lft = lft
+      self.rht = rht
+      self.operator = operator
+      super(BinaryExpression, self).__init__()
+
+   def __str__(self):
+      return '({0} {1} {2})'.format(self.lft, self.operator, self.rht)
+
+
+   def evaluate(self, bindings):
+      return self._applyOperator(self.lft.evaluate(bindings), self.rht.evaluate(bindings))
 
 class Assignment(object):
    def __init__(self, id, src):
@@ -60,60 +73,36 @@ class DoubleConstantExpression(Expression):
       return self.num
 
 
-class AddExpression(Expression):
+class AddExpression(BinaryExpression):
    def __init__(self, lft, rht):
-      self.lft = lft
-      self.rht = rht
+      super(AddExpression, self).__init__(lft, rht, '+')
+
+   def _applyOperator(self, lft, rht):
+      return lft + rht
 
 
-   def __str__(self):
-      return '({0} + {1})'.format(self.lft, self.rht)
-
-
-   def evaluate(self, bindings):
-      return self.lft.evaluate(bindings) + self.rht.evaluate(bindings)
-
-
-class MinusExpression(Expression):
+class MinusExpression(BinaryExpression):
    def __init__(self, lft, rht):
-      self.lft = lft
-      self.rht = rht
+      super(MinusExpression, self).__init__(lft, rht, '-')
+
+   def _applyOperator(self, lft, rht):
+      return lft - rht
 
 
-   def __str__(self):
-      return '({0} - {1})'.format(self.lft, self.rht)
-
-
-   def evaluate(self, bindings):
-      return self.lft.evaluate(bindings) - self.rht.evaluate(bindings)
-
-
-class TimesExpression(Expression):
+class TimesExpression(BinaryExpression):
    def __init__(self, lft, rht):
-      self.lft = lft
-      self.rht = rht
+      super(TimesExpression, self).__init__(lft, rht, '*')
+
+   def _applyOperator(self, lft, rht):
+      return lft * rht
 
 
-   def __str__(self):
-      return '({0} * {1})'.format(self.lft, self.rht)
-
-
-   def evaluate(self, bindings):
-      return self.lft.evaluate(bindings) * self.rht.evaluate(bindings)
-
-
-class DivideExpression(Expression):
+class DivideExpression(BinaryExpression):
    def __init__(self, lft, rht):
-      self.lft = lft
-      self.rht = rht
+      super(DivideExpression, self).__init__(lft, rht, '/')
 
-
-   def __str__(self):
-      return '({0} / {1})'.format(self.lft, self.rht)
-
-
-   def evaluate(self, bindings):
-      return self.lft.evaluate(bindings) / self.rht.evaluate(bindings)
+   def _applyOperator(self, lft, rht):
+      return lft / rht
 
 
 class UnboundIdentifierException(Exception):
