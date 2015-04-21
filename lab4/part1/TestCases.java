@@ -26,10 +26,8 @@ public class TestCases
    }
 
    @Test
-   public void testSimpleIf3()
-   {
-      fail("Missing SimpleIf3");
-      /* TO DO: Write one more valid test case. */
+   public void testSimpleIf3() {
+      assertEquals(0.0, SimpleIf.max(0.0, -1.1), DELTA);
    }
 
    @Test
@@ -45,12 +43,7 @@ public class TestCases
    }
 
    @Test
-   public void testSimpleLoop3()
-   {
-      fail("Missing SimpleLoop3");
-      /* TO DO: Write one more valid test case to make sure that
-         this function is not just returning 7. */
-   }
+   public void testSimpleLoop3() { assertEquals(55, SimpleLoop.sum(0, 10));}
 
    @Test
    public void testSimpleArray1()
@@ -71,8 +64,8 @@ public class TestCases
    @Test
    public void testSimpleArray3()
    {
-      fail("Missing SimpleArray3");
-      /* TO DO: Add a new test case. */
+      assertArrayEquals(null,
+              SimpleArray.squareAll(new int[] {4,5,6}), new int[] {16, 25, 36});
    }
 
    @Test
@@ -85,14 +78,17 @@ public class TestCases
 
       assertEquals(expected, SimpleList.squareAll(input));
 
-      /* TO DO: Add a new test case. */
    }
 
    @Test
    public void testSimpleList2()
    {
-      fail("Missing SimpleList2");
-      /* TO DO: Add a new test case. */
+      List<Integer> input =
+              new LinkedList<Integer>(Arrays.asList(new Integer[] {6, 5, 4}));
+      List<Integer> expected =
+              new ArrayList<Integer>(Arrays.asList(new Integer[] {36, 25, 16}));
+
+      assertEquals(expected, SimpleList.squareAll(input));
    }
 
    @Test
@@ -108,9 +104,5 @@ public class TestCases
    }
 
    @Test
-   public void testBetterLoop3()
-   {
-      fail("Missing BetterLoop3");
-      /* TO DO: Write a valid test case where the expected result is false. */
-   }
+   public void testBetterLoop3() { assertTrue(BetterLoop.contains(new int[] {1, 2, 3, 4, 5, 6}, 1));}
 }

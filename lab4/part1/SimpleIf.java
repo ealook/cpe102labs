@@ -6,6 +6,12 @@ public class SimpleIf
          argument is larger and return that value.
       */
 
-      return 0; // clearly not correct -- but testable
+      double retval = x;
+
+      if (y > x) {
+         retval = y;
+      }
+
+      return retval;
    }
 }
