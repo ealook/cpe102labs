@@ -4,10 +4,10 @@ import org.junit.Test;
 public class TestCases2
 {
     private static final double DELTA = 0.00001;
-    private CartesianPoint pt = new CartesianPoint(3.0, 4.0);
-    private PolarPoint pt2 = new PolarPoint(1.0, Math.PI/4);
-    private CartesianPoint pt3 = new CartesianPoint(0.0, 0.0);
-    private PolarPoint pt4 = new PolarPoint(0.0, Math.PI);
+    private Point pt = new CartesianPoint(3.0, 4.0);
+    private Point pt2 = new PolarPoint(1.0, Math.PI/4);
+    private Point pt3 = new CartesianPoint(0.0, 0.0);
+    private Point pt4 = new PolarPoint(0.0, Math.PI);
 
     @Test
     public void testCartesianX()
