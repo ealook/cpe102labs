@@ -3,8 +3,16 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 
+<<<<<<< HEAD
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
+=======
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+import org.junit.Test;
+import org.junit.Before;
+>>>>>>> 50cea9d62b4502074fa64aaa20429ba0af3a8fd8
 
 public class TestCases
 {
@@ -22,16 +30,20 @@ public class TestCases
    @Test
    public void testArtistComparator()
    {
+<<<<<<< HEAD
       Comparator<Song> comp = new ArtistComparator();
 
       assertTrue(comp.compare(songs[0], songs[1]) < 0);
       assertTrue(comp.compare(songs[0], songs[0]) == 0);
       assertTrue(comp.compare(songs[1], songs[0]) > 0);
+=======
+>>>>>>> 50cea9d62b4502074fa64aaa20429ba0af3a8fd8
    }
 
    @Test
    public void testLambdaTitleComparator()
    {
+<<<<<<< HEAD
       Comparator<Song> comp = (Song s1, Song s2) -> {
          String artist1 = s1.getArtist();
          String artist2 = s2.getArtist();
@@ -42,11 +54,14 @@ public class TestCases
       assertTrue(comp.compare(songs[0], songs[1]) < 0);
       assertTrue(comp.compare(songs[0], songs[0]) == 0);
       assertTrue(comp.compare(songs[1], songs[0]) > 0);
+=======
+>>>>>>> 50cea9d62b4502074fa64aaa20429ba0af3a8fd8
    }
 
    @Test
    public void testComposedComparator()
    {
+<<<<<<< HEAD
       Comparator<Song> compArtist = (Song s1, Song s2) -> {
          String artist1 = s1.getArtist();
          String artist2 = s2.getArtist();
@@ -66,11 +81,14 @@ public class TestCases
       assertTrue(comp.compare(songs[0], songs[1]) > 0);
       assertTrue(comp.compare(songs[0], songs[0]) == 0);
       assertTrue(comp.compare(songs[3], songs[5]) > 0);
+=======
+>>>>>>> 50cea9d62b4502074fa64aaa20429ba0af3a8fd8
    }
 
    @Test
    public void testThenComparing()
    {
+<<<<<<< HEAD
       Comparator<Song> compTitle = (Song s1, Song s2) -> {
          String title1 = s1.getTitle();
          String title2 = s2.getTitle();
@@ -90,12 +108,15 @@ public class TestCases
       assertTrue(compTitle.compare(songs[0], songs[1]) > 0);
       assertTrue(compTitle.compare(songs[0], songs[0]) == 0);
       assertTrue(compTitle.compare(songs[3], songs[5]) > 0);
+=======
+>>>>>>> 50cea9d62b4502074fa64aaa20429ba0af3a8fd8
    }
 
    @Test
    public void runSort()
    {
       List<Song> songList = new ArrayList<>(Arrays.asList(songs));
+<<<<<<< HEAD
       Comparator<Song> comp = (Song s1, Song s2) -> {
          String artist1 = s1.getArtist();
          String artist2 = s2.getArtist();
@@ -121,6 +142,12 @@ public class TestCases
 
       songList.sort(
          comp
+=======
+      Comparator<Song> comp;
+
+      songList.sort(
+         // pass comparator here
+>>>>>>> 50cea9d62b4502074fa64aaa20429ba0af3a8fd8
       );
       printList(songList);
    }
